@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://pct4m3yh20sa"]
+
+[ext_resource type="Texture2D" uid="uid://dps4naeq824ki" path="res://Art/DrillPod.png" id="1_2s8jt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xouxq"]
+radius = 4.0
+height = 14.0
+
+[sub_resource type="Animation" id="Animation_r40ar"]
+resource_name = "drilling"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_dvoy0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vapmx"]
+_data = {
+"RESET": SubResource("Animation_dvoy0"),
+"drilling": SubResource("Animation_r40ar")
+}
+
+[node name="DrillPod" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2s8jt")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_xouxq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "drilling"
+libraries = {
+"": SubResource("AnimationLibrary_vapmx")
+}
