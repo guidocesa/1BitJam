@@ -6,6 +6,21 @@
 radius = 4.0
 height = 14.0
 
+[sub_resource type="Animation" id="Animation_dvoy0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_r40ar"]
 resource_name = "drilling"
 length = 0.2
@@ -23,21 +38,6 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_dvoy0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vapmx"]
 _data = {
 "RESET": SubResource("Animation_dvoy0"),
@@ -45,6 +45,7 @@ _data = {
 }
 
 [node name="DrillPod" type="RigidBody2D"]
+position = Vector2(52, 41)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_2s8jt")
