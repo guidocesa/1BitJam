@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://co4ie6wfwpsul"]
+[gd_scene load_steps=8 format=3 uid="uid://co4ie6wfwpsul"]
 
 [ext_resource type="Texture2D" uid="uid://c0ssbxjf0tg0q" path="res://Art/RadarPod.png" id="1_a1dcn"]
+[ext_resource type="Script" path="res://radar_pod.cs" id="1_v0gxl"]
 
 [sub_resource type="Animation" id="Animation_0ha7g"]
 resource_name = "Scanning"
@@ -43,7 +44,11 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_f34sq"]
 radius = 5.09902
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vr26m"]
+radius = 50.0
+
 [node name="RadarPod" type="RigidBody2D"]
+script = ExtResource("1_v0gxl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Scanning"
@@ -55,5 +60,12 @@ libraries = {
 texture = ExtResource("1_a1dcn")
 hframes = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="BodyColision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_f34sq")
+
+[node name="RadarArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RadarArea"]
+shape = SubResource("CircleShape2D_vr26m")
+
+[connection signal="area_entered" from="RadarArea" to="." method="OnRadarAreaEntered"]

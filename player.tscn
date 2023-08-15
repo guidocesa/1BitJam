@@ -45,6 +45,7 @@ _data = {
 }
 
 [node name="Player" type="Node2D"]
+position = Vector2(477, 265)
 script = ExtResource("1_47f5l")
 
 [node name="CannonPivot" type="Marker2D" parent="."]

@@ -22,14 +22,14 @@ public partial class Player : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		GD.Print(this.GetGlobalMousePosition());
-		Vector2 cannonDirection = (this.GetGlobalMousePosition() - this.Position).Normalized();
-		cannonPivot.Rotation = GetAngleTo(cannonDirection) + cannonCorrection;
+		Vector2 cannonDirection = (this.GetGlobalMousePosition() - this.GlobalPosition).Normalized();
+		cannonPivot.Rotation = cannonDirection.Angle() + cannonCorrection;
 		
+		//Quizas los taladros no deberian ser hijos de la base, checkear;
 		if(Input.IsActionJustPressed("shoot_drill"))
 		{
 			RigidBody2D newDrill = drillScene.Instantiate<RigidBody2D>();
-			newDrill.Position = this.Position;
+			//newDrill.GlobalPosition = this.GlobalPosition;
 			newDrill.Rotation = cannonPivot.Rotation;
 			newDrill.LinearVelocity = new Vector2(cannonDirection.X, cannonDirection.Y) * SHOOTING_SPEED;
 			this.AddChild(newDrill);
@@ -37,7 +37,7 @@ public partial class Player : Node2D
 		if(Input.IsActionJustPressed("shoot_radar"))
 		{
 			RigidBody2D newRadar = radarScene.Instantiate<RigidBody2D>();
-			newRadar.Position = this.Position;
+			//newRadar.GlobalPosition = this.GlobalPosition;
 			newRadar.Rotation = cannonPivot.Rotation;
 			newRadar.LinearVelocity = new Vector2(cannonDirection.X, cannonDirection.Y) * SHOOTING_SPEED;
 			this.AddChild(newRadar);
