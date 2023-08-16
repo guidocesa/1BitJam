@@ -74,6 +74,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1b2mx")
 
 [node name="Player" type="Node2D"]
+position = Vector2(477, 265)
 script = ExtResource("1_47f5l")
 
 [node name="CannonPivot" type="Marker2D" parent="."]

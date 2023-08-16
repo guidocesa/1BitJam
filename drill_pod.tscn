@@ -45,7 +45,6 @@ _data = {
 }
 
 [node name="DrillPod" type="RigidBody2D"]
-position = Vector2(52, 41)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_2s8jt")
