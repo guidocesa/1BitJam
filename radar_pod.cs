@@ -16,6 +16,6 @@ public partial class radar_pod : RigidBody2D
 
 	public void OnRadarAreaEntered(Area2D area)
 	{
-		GD.Print("Funca");
+		this.EmitSignal("body_entered");
 	}
 }

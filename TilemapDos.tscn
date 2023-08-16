@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8lcph666vjwm"]
+
+[ext_resource type="Texture2D" uid="uid://c4ddwgdnnhje" path="res://Art/MoonTexture.png" id="1_bbksu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1b2mx"]
+texture = ExtResource("1_bbksu")
+separation = Vector2i(1, 0)
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_iwtla"]
+tile_size = Vector2i(32, 32)
+occlusion_layer_0/light_mask = 1
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 8
+sources/0 = SubResource("TileSetAtlasSource_1b2mx")
+
+[node name="TileMap" type="TileMap"]
+tile_set = SubResource("TileSet_iwtla")
+format = 2
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
