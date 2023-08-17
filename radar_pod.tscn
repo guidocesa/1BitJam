@@ -1,7 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://co4ie6wfwpsul"]
+[gd_scene load_steps=11 format=3 uid="uid://co4ie6wfwpsul"]
 
 [ext_resource type="Texture2D" uid="uid://c0ssbxjf0tg0q" path="res://Art/RadarPod.png" id="1_a1dcn"]
 [ext_resource type="Script" path="res://radar_pod.cs" id="1_v0gxl"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xnc0b"]
+friction = 0.0
+bounce = 1.0
 
 [sub_resource type="Animation" id="Animation_lbn2s"]
 length = 0.001
@@ -47,7 +51,19 @@ radius = 5.09902
 [sub_resource type="CircleShape2D" id="CircleShape2D_vr26m"]
 radius = 50.0
 
+[sub_resource type="Gradient" id="Gradient_hsv75"]
+offsets = PackedFloat32Array(0, 0.806452)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2bsrt"]
+gradient = SubResource("Gradient_hsv75")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="RadarPod" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_xnc0b")
+max_contacts_reported = 3
+contact_monitor = true
 script = ExtResource("1_v0gxl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -68,4 +84,10 @@ shape = SubResource("CircleShape2D_f34sq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RadarArea"]
 shape = SubResource("CircleShape2D_vr26m")
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_2bsrt")
+texture_scale = 8.66
+
+[connection signal="body_entered" from="." to="." method="OnCollisionEntered"]
 [connection signal="area_entered" from="RadarArea" to="." method="OnRadarAreaEntered"]

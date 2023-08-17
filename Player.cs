@@ -10,6 +10,7 @@ public partial class Player : Node2D
 	private float cannonCorrection = MathF.PI/2;
 	private PackedScene drillScene;
 	private PackedScene radarScene;
+	private int maxCollisions = 3;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -26,6 +27,8 @@ public partial class Player : Node2D
 		cannonPivot.Rotation = cannonDirection.Angle() + cannonCorrection;
 		
 		//Quizas los taladros no deberian ser hijos de la base, checkear;
+
+		//CAMBIAR LOS IFS POR UN SWITCH
 		if(Input.IsActionJustPressed("shoot_drill"))
 		{
 			RigidBody2D newDrill = drillScene.Instantiate<RigidBody2D>();
@@ -43,10 +46,33 @@ public partial class Player : Node2D
 			this.AddChild(newRadar);
 			newRadar.Connect("body_entered", Callable.From(OnRadarCollided));
 		}
+
+		if(Input.IsActionJustPressed("up_bounce_sonar")){
+			GD.Print("Un Bounce mas");
+			if(maxCollisions != 3){
+				maxCollisions++;
+				GD.Print(maxCollisions);
+				HUD hud = GetNode<HUD>("/root/LevelTest/HUD");
+				hud.UpdateBounces(maxCollisions);
+			}
+		}
+		if(Input.IsActionJustPressed("down_bounce_sonar")){
+			if(maxCollisions != 0){
+				maxCollisions--;
+				GD.Print(maxCollisions);
+				HUD hud = GetNode<HUD>("/root/LevelTest/HUD");
+				hud.UpdateBounces(maxCollisions);
+			}
+		}
 	}
 
 	public void OnRadarCollided()
 	{
 		GD.Print("Aun funca");
+	}
+
+	public int GetBounces(){
+		GD.Print("Max Collisions:" + maxCollisions.ToString());
+		return maxCollisions;
 	}
 }

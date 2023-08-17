@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjd47gcj2bf35"]
+
+[ext_resource type="Script" path="res://HUD.cs" id="1_1v4c0"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_1v4c0")
+
+[node name="SonarBounces" type="Label" parent="."]
+offset_left = 27.0
+offset_top = 3.0
+offset_right = 67.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 50
+text = "3"
