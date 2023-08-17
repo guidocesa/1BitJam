@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://lfrqin4suunl"]
+[gd_scene load_steps=7 format=3 uid="uid://lfrqin4suunl"]
 
 [ext_resource type="PackedScene" uid="uid://c44n8p0cxg6db" path="res://player.tscn" id="1_h22m7"]
 [ext_resource type="PackedScene" uid="uid://de8cnitdyp0fm" path="res://mineral.tscn" id="2_hjd8o"]
 [ext_resource type="PackedScene" uid="uid://c8lcph666vjwm" path="res://TilemapDos.tscn" id="2_xwuo4"]
 [ext_resource type="PackedScene" uid="uid://o8giw74avkjs" path="res://tile_map.tscn" id="3_nxoib"]
-[ext_resource type="PackedScene" uid="uid://cjd47gcj2bf35" path="res://HUD.tscn" id="5_t04qk"]
+[ext_resource type="PackedScene" uid="uid://dothbekgvphbj" path="res://HUD.tscn" id="5_t04qk"]
+[ext_resource type="PackedScene" uid="uid://b8dulsq5h6xy6" path="res://Minable_01.tscn" id="6_a0vsw"]
 
 [node name="LevelTest" type="Node2D"]
 
@@ -21,3 +22,11 @@ layer_0/tile_data = PackedInt32Array(589833, 393216, 1, 655370, 393216, 1, 85197
 position = Vector2(479, 294)
 
 [node name="HUD" parent="." instance=ExtResource("5_t04qk")]
+
+[node name="Minable" parent="." instance=ExtResource("6_a0vsw")]
+position = Vector2(602, 133)
+rotation = 3.14159
+
+[node name="Minable2" parent="." instance=ExtResource("6_a0vsw")]
+position = Vector2(391, 141)
+rotation = 1.5708

@@ -21,7 +21,7 @@ public partial class radar_pod : RigidBody2D
 
 	public void OnRadarAreaEntered(Area2D area)
 	{
-		this.EmitSignal("body_entered");
+		//this.EmitSignal("body_entered");
 	}
 
 	public void UpdateBounces(int bounces){

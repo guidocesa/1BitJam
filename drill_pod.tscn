@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://pct4m3yh20sa"]
+[gd_scene load_steps=7 format=3 uid="uid://pct4m3yh20sa"]
 
 [ext_resource type="Texture2D" uid="uid://dps4naeq824ki" path="res://Art/DrillPod.png" id="1_2s8jt"]
+[ext_resource type="Script" path="res://drill_pod.cs" id="1_p7hw6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xouxq"]
 radius = 4.0
@@ -45,6 +46,20 @@ _data = {
 }
 
 [node name="DrillPod" type="RigidBody2D"]
+max_contacts_reported = 2
+contact_monitor = true
+script = ExtResource("1_p7hw6")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -8)
+emitting = false
+amount = 20
+lifetime = 0.5
+direction = Vector2(0, 1)
+spread = 60.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 75.0
+initial_velocity_max = 90.32
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_2s8jt")
@@ -59,3 +74,5 @@ autoplay = "drilling"
 libraries = {
 "": SubResource("AnimationLibrary_vapmx")
 }
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

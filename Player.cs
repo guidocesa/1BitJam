@@ -44,7 +44,7 @@ public partial class Player : Node2D
 			newRadar.Rotation = cannonPivot.Rotation;
 			newRadar.LinearVelocity = new Vector2(cannonDirection.X, cannonDirection.Y) * SHOOTING_SPEED;
 			this.AddChild(newRadar);
-			newRadar.Connect("body_entered", Callable.From(OnRadarCollided));
+			//newRadar.Connect("body_entered", Callable.From(OnRadarCollided));
 		}
 
 		if(Input.IsActionJustPressed("up_bounce_sonar")){

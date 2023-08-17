@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8dulsq5h6xy6"]
+
+[ext_resource type="Texture2D" uid="uid://breulr15cjn6l" path="res://Art/Minable_01.png" id="1_8jt64"]
+
+[node name="Minable" type="StaticBody2D" groups=["Minable"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8jt64")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-13, 16, -6, -3, 8, -3, 13, 16)
