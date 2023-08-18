@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://pct4m3yh20sa"]
+[gd_scene load_steps=8 format=3 uid="uid://pct4m3yh20sa"]
 
 [ext_resource type="Texture2D" uid="uid://dps4naeq824ki" path="res://Art/DrillPod.png" id="1_2s8jt"]
 [ext_resource type="Script" path="res://drill_pod.cs" id="1_p7hw6"]
+[ext_resource type="Texture2D" uid="uid://kkfnyv6yopbb" path="res://Art/nx5eocu3.bmp" id="3_24mil"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xouxq"]
 radius = 4.0
@@ -50,7 +51,7 @@ max_contacts_reported = 2
 contact_monitor = true
 script = ExtResource("1_p7hw6")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="Mining" type="CPUParticles2D" parent="."]
 position = Vector2(0, -8)
 emitting = false
 amount = 20
@@ -74,5 +75,24 @@ autoplay = "drilling"
 libraries = {
 "": SubResource("AnimationLibrary_vapmx")
 }
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+enabled = false
+shadow_enabled = true
+texture = ExtResource("3_24mil")
+texture_scale = 0.3
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Explosion" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 400
+one_shot = true
+explosiveness = 0.6
+lifetime_randomness = 0.4
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]

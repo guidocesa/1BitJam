@@ -51,12 +51,12 @@ radius = 5.09902
 [sub_resource type="CircleShape2D" id="CircleShape2D_vr26m"]
 radius = 50.0
 
-[sub_resource type="Gradient" id="Gradient_hsv75"]
-offsets = PackedFloat32Array(0, 0.806452)
+[sub_resource type="Gradient" id="Gradient_sdyf3"]
+offsets = PackedFloat32Array(0, 0.658824)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_2bsrt"]
-gradient = SubResource("Gradient_hsv75")
+gradient = SubResource("Gradient_sdyf3")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
@@ -87,7 +87,7 @@ shape = SubResource("CircleShape2D_vr26m")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_2bsrt")
-texture_scale = 8.66
+texture_scale = 3.0
 
 [connection signal="body_entered" from="." to="." method="OnCollisionEntered"]
 [connection signal="area_entered" from="RadarArea" to="." method="OnRadarAreaEntered"]
