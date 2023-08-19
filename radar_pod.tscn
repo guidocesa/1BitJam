@@ -89,5 +89,7 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_2bsrt")
 texture_scale = 3.0
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="body_entered" from="." to="." method="OnCollisionEntered"]
 [connection signal="area_entered" from="RadarArea" to="." method="OnRadarAreaEntered"]

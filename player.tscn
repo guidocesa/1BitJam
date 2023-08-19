@@ -78,8 +78,11 @@ libraries = {
 }
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 3.0
 shadow_enabled = true
 shadow_filter = 2
 shadow_filter_smooth = 2.0
 texture = SubResource("GradientTexture2D_dbhoq")
 texture_scale = 9.46
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

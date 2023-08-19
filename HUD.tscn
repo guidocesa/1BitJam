@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dothbekgvphbj"]
+[gd_scene load_steps=4 format=3 uid="uid://dothbekgvphbj"]
 
 [ext_resource type="Script" path="res://HUD.cs" id="1_1v4c0"]
+[ext_resource type="Texture2D" uid="uid://b3mogqbtb7mme" path="res://Art/UI_main.png" id="2_wgacr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_45kgh"]
+font_size = 33
 
 [node name="HUD" type="CanvasLayer"]
+scale = Vector2(0.667, 0.667)
+transform = Transform2D(0.667, 0, 0, 0.667, 0, 0)
 script = ExtResource("1_1v4c0")
 
 [node name="SonarBounces" type="Label" parent="."]
@@ -12,3 +18,40 @@ offset_right = 67.0
 offset_bottom = 75.0
 theme_override_font_sizes/font_size = 50
 text = "3"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_wgacr")
+
+[node name="RadarBouncesLbl" type="Label" parent="."]
+offset_left = 135.0
+offset_top = 34.0
+offset_right = 473.0
+offset_bottom = 85.0
+text = "Radar Bounces:"
+label_settings = SubResource("LabelSettings_45kgh")
+
+[node name="DrillsLeftLbl" type="Label" parent="."]
+offset_left = 910.0
+offset_top = 34.0
+offset_right = 1248.0
+offset_bottom = 85.0
+text = "Drills Left:"
+label_settings = SubResource("LabelSettings_45kgh")
+
+[node name="RadarsLeftLbl" type="Label" parent="."]
+offset_left = 520.0
+offset_top = 34.0
+offset_right = 858.0
+offset_bottom = 85.0
+text = "Radars Left:"
+label_settings = SubResource("LabelSettings_45kgh")
+
+[node name="MineralsLeftLbl" type="Label" parent="."]
+offset_left = 1299.85
+offset_top = 35.982
+offset_right = 1637.85
+offset_bottom = 86.982
+text = "Minerals Left:"
+label_settings = SubResource("LabelSettings_45kgh")
