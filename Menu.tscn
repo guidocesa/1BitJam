@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2ou2von5vi5o"]
+[gd_scene load_steps=4 format=3 uid="uid://d2ou2von5vi5o"]
 
+[ext_resource type="Script" path="res://Menu.cs" id="1_2k2xi"]
 [ext_resource type="PackedScene" uid="uid://dxrngoojd0733" path="res://animation.tscn" id="1_eswdk"]
 [ext_resource type="Texture2D" uid="uid://bljrfj8s40cm" path="res://Art/Title.png" id="2_odsjy"]
 
@@ -10,28 +11,32 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2k2xi")
 
 [node name="Animation" parent="." instance=ExtResource("1_eswdk")]
-position = Vector2(-47, -25)
+position = Vector2(127, 137.66)
 
 [node name="Title" type="Sprite2D" parent="."]
-position = Vector2(447, 81)
+position = Vector2(621, 243.66)
 scale = Vector2(0.379, 0.379)
 texture = ExtResource("2_odsjy")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 335.0
-offset_top = 139.0
-offset_right = 527.0
-offset_bottom = 195.0
+offset_left = 509.0
+offset_top = 301.66
+offset_right = 701.0
+offset_bottom = 357.66
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Start"
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 339.0
-offset_top = 294.0
-offset_right = 527.0
-offset_bottom = 347.0
+offset_left = 513.0
+offset_top = 456.66
+offset_right = 701.0
+offset_bottom = 509.66
 text = "Exit"
+
+[connection signal="pressed" from="Button" to="." method="Start"]
+[connection signal="pressed" from="Button2" to="." method="Close"]

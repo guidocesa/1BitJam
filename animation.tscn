@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dxrngoojd0733"]
 
-[ext_resource type="PackedScene" uid="uid://csnrg0ka45esv" path="res://DemoBase.tscn" id="1_ovpav"]
+[ext_resource type="PackedScene" path="res://DemoBase.tscn" id="1_ovpav"]
 [ext_resource type="Texture2D" uid="uid://ctxtcnwn1pa1x" path="res://Art/background_0002_Capa-1.png" id="2_ll4us"]
 [ext_resource type="Texture2D" uid="uid://2ebrkglvcryk" path="res://Art/background_0001_Capa-2.png" id="3_swv0l"]
 
