@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://csnrg0ka45esv"]
+
+[ext_resource type="Script" path="res://DemoBase.cs" id="1_j1gl6"]
+[ext_resource type="Texture2D" uid="uid://crx6hoagc6uv2" path="res://Art/Cannon.png" id="2_uns0u"]
+[ext_resource type="Texture2D" uid="uid://pjp3olxuw6c1" path="res://Art/MainStation.png" id="3_gcxoc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bla3p"]
+
+[sub_resource type="Animation" id="Animation_nning"]
+resource_name = "Cannon"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CannonPivot/Cannon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_g1xsl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CannonPivot/Cannon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bapfk"]
+_data = {
+"Cannon": SubResource("Animation_nning"),
+"RESET": SubResource("Animation_g1xsl")
+}
+
+[sub_resource type="Gradient" id="Gradient_qun74"]
+offsets = PackedFloat32Array(0, 0.670103)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dbhoq"]
+gradient = SubResource("Gradient_qun74")
+fill = 1
+fill_from = Vector2(0.512821, 0.495726)
+fill_to = Vector2(1, 1)
+
+[node name="Player" type="Node2D"]
+position = Vector2(477, 265)
+script = ExtResource("1_j1gl6")
+
+[node name="CannonPivot" type="Marker2D" parent="."]
+
+[node name="Cannon" type="Sprite2D" parent="CannonPivot"]
+position = Vector2(0, -12)
+texture = ExtResource("2_uns0u")
+hframes = 8
+
+[node name="Main" type="Sprite2D" parent="."]
+texture = ExtResource("3_gcxoc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bla3p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Cannon"
+libraries = {
+"": SubResource("AnimationLibrary_bapfk")
+}
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 2.0
+texture = SubResource("GradientTexture2D_dbhoq")
+texture_scale = 9.46

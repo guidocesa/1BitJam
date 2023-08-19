@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxrngoojd0733"]
+
+[ext_resource type="PackedScene" uid="uid://csnrg0ka45esv" path="res://DemoBase.tscn" id="1_ovpav"]
+[ext_resource type="Texture2D" uid="uid://ctxtcnwn1pa1x" path="res://Art/background_0002_Capa-1.png" id="2_ll4us"]
+[ext_resource type="Texture2D" uid="uid://2ebrkglvcryk" path="res://Art/background_0001_Capa-2.png" id="3_swv0l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_662sq"]
+
+[node name="Animation" type="Node2D"]
+material = SubResource("ShaderMaterial_662sq")
+
+[node name="Space" type="Sprite2D" parent="."]
+position = Vector2(476, 269)
+texture = ExtResource("2_ll4us")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="Base" parent="." instance=ExtResource("1_ovpav")]
+
+[node name="Background0001Capa-2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.184314)
+position = Vector2(738, 188)
+texture = ExtResource("3_swv0l")
+
+[connection signal="timeout" from="Timer" to="Base" method="_Fire"]
